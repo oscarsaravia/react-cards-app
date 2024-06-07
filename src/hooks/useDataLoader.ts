@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ApiResponse } from "../interfaces";
 
 export const useUserDataLoader = (baseUrl: string, initialUserId: number) => {
+  // TODO: CREATE LOGIC FOR SAVING FETCHED DATA INTO CACHE OR LOCAL STORAGE
   const [currentUserId, setCurrentUserId] = useState(initialUserId);
   const [apiData, setApiData] = useState<ApiResponse>({} as ApiResponse);
   const [loading, setLoading] = useState(true);
@@ -13,7 +14,7 @@ export const useUserDataLoader = (baseUrl: string, initialUserId: number) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Obtaine data from url
+        // Get data from url
         const response = await fetch(`${baseUrl}/${currentUserId}`);
         const data = await response.json();
         setApiData(data);

@@ -2,6 +2,7 @@ import { Card, CustomButton } from "../components";
 import { useUserDataLoader } from "../hooks";
 
 export const CardsPage = () => {
+  // TODO: ADD API URLS TO THE .ENV FILE FOR BETTER CONFIGURATION
   const baseUrl = "https://jsonplaceholder.typicode.com/users";
   const { apiData, loading, handlePrevious, handleNext } = useUserDataLoader(
     baseUrl,
